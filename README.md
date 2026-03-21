@@ -7,14 +7,13 @@ Managing information such as:
 
 - [ ] Supplier - [TSK11] 
 - [ ] Depositor - [TSK12]
-- [ ] Stock Type - [TSK13]
-- [ ] Product - [TSK14]
-- [ ] Address - [TSK15]
+- [ ] Product - [TSK13]
+- [ ] Address - [TSK14]
 
 ### Receipt Process Page [TSK2]
 
-- [ ] Form to fill in product information, supplier, depositor (optional) and target address. 
+- [ ] Form to fill in product, supplier, depositor (optional) and target address information. 
 
 ### Stock Page [TSK3]
 - [ ] Page containing tables to indicate which products were deposited at which addresses. [TSK31]
-- [ ] This page will have a search filter by depositor, product, supplier, and address. [TSK32]
+- [ ] This page will also have a search filter by depositor, product, supplier, and address. [TSK32]
