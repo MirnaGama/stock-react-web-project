@@ -5,7 +5,7 @@ This project is a front-end web module built with React, Javascript, and NPM. It
 ### General Configuration Page  [TSK1]
 Managing information such as:
 
-- [ ] Supplier - [TSK11] 
+- [X] Supplier - [TSK11] 
 - [ ] Depositor - [TSK12]
 - [ ] Product - [TSK13]
 - [ ] Address - [TSK14]
