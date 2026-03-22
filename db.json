@@ -1,0 +1,16 @@
+{
+  "suppliers": [
+    {
+      "id": "MDB0dDK",
+      "name": "Corleone Inc",
+      "idDocument": "89788718000106",
+      "isCompany": false
+    },
+    {
+      "id": "cPt3noS",
+      "name": "Soprano Inc",
+      "idDocument": "42750935000135",
+      "isCompany": false
+    }
+  ]
+}
