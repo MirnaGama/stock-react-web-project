@@ -2,30 +2,17 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.Main-container {
+  min-height: 100vh; 
+  margin-top: 50px;
+  margin-left: 30%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+.Clear-field-button {
+  background-color: white;
+  color:#282c34;
+  text-decoration: underline #4CAF50;
 }
 
 input[type=submit], button {
@@ -45,3 +32,4 @@ input[type=submit], button {
     transform: rotate(360deg);
   }
 }
+
