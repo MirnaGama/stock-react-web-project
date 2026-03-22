@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import PersonEntityForm from "../../../components/person-entity-form/PersonEntityForm";
-import PersonEntityList from "../../../components/person-entity-list/PersonEntityList";
+import PersonEntityForm from "../../person-entity/person-entity-form/PersonEntityForm";
+import PersonEntityList from "../../person-entity/person-entity-list/PersonEntityList";
 import { sendErrorToast, sendSuccessToast } from "../../../util/Toast";
 import SupplierService from "../services/SupplierService";
 
 const SupplierPage = () => {
 
   const createNewSupplier = (supplier) => {
-      SupplierService.createSupplier(supplier).then(() => {
-        sendSuccessToast("Supplier created successfully!");
-        setSuppliers([...suppliers, supplier])
-      })
+    SupplierService.createSupplier(supplier).then(() => {
+      sendSuccessToast("Supplier created successfully!");
+      setSuppliers([...suppliers, supplier]);
+      setNewSupplierRender(false);
+    })
       .catch((err) => {
         sendErrorToast("An unexpected error occured! ", err);
       });
@@ -25,32 +26,45 @@ const SupplierPage = () => {
 
   const getSuppliers = () => {
     SupplierService.getSuppliers()
-    .then((response) => {
-      setSuppliers(response.data);
-    })
-    .catch((err) => {
-      sendErrorToast("Network error. Try again later")
-    });
+      .then((response) => {
+        setSuppliers(response.data);
+      })
+      .catch((err) => {
+        sendErrorToast("Network error. Try again later")
+      });
   }
- 
-  const handleClickNewSupplier = () => { // Define the event handler function
-    setNewSupplierRender(newSupplierRender == true ? false : true);
+
+  const handleClickNewSupplier = () => {
+    setNewSupplierRender(newSupplierRender === true ? false : true);
   };
 
+  function updateSupplier(supplier) {
+    SupplierService.updateSupplier(supplier.id, supplier).then(() => {
+      sendSuccessToast("Successfully updated!");
+      getSuppliers();
+    })
+      .catch((err) => {
+        sendErrorToast("Network error. Try again later")
+      });
+  }
+
   return (
-      <>
-      
-      <PersonEntityList personEntities={suppliers}/>
+    <>
 
-      <button onClick={handleClickNewSupplier}> 
-      {!newSupplierRender ? "Return" : "Add new supplier"}
-      </button>
-      
-      {!newSupplierRender ? <PersonEntityForm entityType="supplier" handlePersistFormData={createNewSupplier}/> :
-      null }
+      <div className="Main-container">
+        <PersonEntityList personEntities={suppliers} handleUpdateEntity={updateSupplier} />
 
-      
-      </>
+        <button onClick={handleClickNewSupplier} style={{ marginRight: "50%", marginTop: "20px" }}>
+          {!newSupplierRender ? "Return" : "Add new supplier"}
+        </button>
+
+        {!newSupplierRender ? <PersonEntityForm entityType="supplier" handlePersistFormData={createNewSupplier} /> :
+          null}
+
+      </div>
+
+
+    </>
   );
 }
 
